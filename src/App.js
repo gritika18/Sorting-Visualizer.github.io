@@ -82,7 +82,9 @@ const App = () => {
     authListener();
   },[])
 
+
   return (
+
     <div className="app">
       {user ? (<Main handleLogout={handleLogout} />):(
       <Login 

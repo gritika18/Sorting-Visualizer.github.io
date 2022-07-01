@@ -1,6 +1,6 @@
 import { swap } from './helper'
 
-const BubbleSort = (array, steps, colors) => {
+const BubbleSort = (array, position, steps, colors) => {
     let colorKey = colors[colors.length - 1].slice();
 
     for( let i = 0; i < array.length; i++ ) {

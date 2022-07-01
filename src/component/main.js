@@ -1,50 +1,25 @@
 import React from "react";
-import CarouselContainer from "./carousel";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import './navbar.css';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import LandingPage from "./landingPage";
+import NavbarAll from "./navbar";
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import MyNotes from "./pages/MyNotes";
+import Sorting from "./Sorting";
 
 const Main = ({handleLogout}) => {
     return (
-        <section className="hero">
-            <Navbar bg="light" expand="lg">
-                <Container >
-                    <Navbar.Brand href="#">Sorting Visualizer</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll" className="justify-content-end" >
-                        <Nav navbarScroll >
-                            <Nav.Link href="#action1">My Notes</Nav.Link>
-                                <NavDropdown
-                                    id="nav-dropdown-dark-example"
-                                    title="Visualizer"
-                                    menuVariant="dark"
-                                    >
-                                    <NavDropdown.Item href="#action/3.1">Bubble Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Selection Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Insertion Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.1">Merge Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Quick Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Counting Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.1">Radix Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Bucket Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Heap Sort</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Shell Sort</NavDropdown.Item>
-                                </NavDropdown>
-                        </Nav>
-                        <button onClick={handleLogout} >Logout</button>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-            <body>
-                <CarouselContainer />
-                <br />
-                <p className="heading">All Sorting Algorithms</p>
-                <LandingPage />
-            </body>
-        </section>
+            <Router>
+            <NavbarAll handleLogout={handleLogout} />
+            <Routes>
+                <Route exact path="/" element={<LandingPage />} />
+                <Route exact path="/Bubble-sort" element={<Sorting algorithm={'Bubble Sort'}/>} />
+                <Route exact path="/Insertion-sort" element={<Sorting algorithm={'Insertion Sort'}/>} />
+                <Route exact path="/Merge-sort"element={<Sorting algorithm={'Merge Sort'}/>} />
+                <Route exact path="/Quick-sort" element={<Sorting algorithm={'Quick Sort'}/>} />
+                <Route exact path="/Selection-sort" element={<Sorting algorithm={'Selection Sort'}/>} />
+                <Route exact path="/myNotes" element={<MyNotes />} />
+            </Routes>
+            </Router>
     );
 };
 

@@ -10,7 +10,7 @@ const Bars= ({index, length, colorKey, changeArray}) => {
     }, [length])
 
 
-    const colors = ['#3d5af1', '#ff304f', '#83e85a'];
+    const colors = ['#ffb6c1', '#ff00ff', '#00ff7f', '#ffa500','#0000ff'];
 
     let barStyle = {
         background: colors[colorKey],
@@ -63,15 +63,7 @@ const Bars= ({index, length, colorKey, changeArray}) => {
     return (
         <div className="bar" style={barStyle}>
             <input type="number" style={textStyle} className="text" value={len} onChange={handleChange} />
-            <div className="quantityNav">
-                {/* <div className="quantity-btn quantity-up" style={quantityBtnStyle} onClick={increment}> 
-                    +
-                </div>
-                <div className="quantity-btn quantity-down" style={quantityBtnStyle} onClick={decrement}>
-                    -
-                </div> */}
-                <input className="quantity-btn" style={quantityBtnStyle} type="number" value={len} onChange={handleChange} />
-            </div>
+            <input className="quantity-btn" style={quantityBtnStyle} type="number" value={len} onChange={handleChange} />
         </div>
     );
 }
