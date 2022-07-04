@@ -15,7 +15,7 @@ import './Sort.css';
 
 // Component
 import Bar from './Bar'
-import AlgorithmData from '../algorithms/AlgorithmData';
+import AlgorithmData from '../../algorithms/AlgorithmData';
 
 class Sorting extends Component {
     state = { 

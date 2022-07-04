@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    white-space: pre-wrap;
 }
 
 .note_note-footer{
@@ -24,8 +25,8 @@
     max-width: 960px;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 1rem;
+    padding-left: 1rem;
     min-height: 100vh;
 }
 
@@ -33,25 +34,27 @@
     background-color: #67d7cc;
 }
 
-textarea{
+.note_textarea{
     border:none;
-    resize: none;
     background-color: #67d7cc;
+    resize: none;
 }
 
-textarea:focus{
+.note_textarea:focus{
     outline: none;
 }
 
 .note_save{
-    background-color: grey;
+    width: 30%;
+    background-color: rgb(235, 232, 232);
+    color: #000;
     border: none;
-    border-radius: 15px;
-    padding: 5px 10px 5px 10px;
+    border-radius: 1rem;
+    padding: 0.2rem;
 }
 
 .note_save:hover{
-    background-color: #433f3f;
+    background-color: #716f6f;
     cursor: pointer;
 }
 
@@ -71,6 +74,7 @@ textarea:focus{
 .note_search input{
     border:none;
     background-color: gainsboro;
+    width: 70%;
 }
 
 .note_search input:focus{
@@ -78,15 +82,11 @@ textarea:focus{
 }
 
 .note_header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #18af4f;
 }
 
-.note_dark-mode{
-    background-color: black;
-}
-
-.note_dark-mode h1{
-    color: white;
-}

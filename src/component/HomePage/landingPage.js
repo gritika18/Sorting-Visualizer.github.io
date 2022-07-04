@@ -1,13 +1,15 @@
+import './landing.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import './landing.css';
 import Button from 'react-bootstrap/Button';
-import gif1 from './../assets/images/Bubble_sort.gif'
-import gif2 from './../assets/images/insertion-sort.gif'
-import gif3 from './../assets/images/merge-sort.gif'
-import gif4 from './../assets/images/Quicksort.gif'
-import gif5 from './../assets/images/selectionsort.gif'
+
+import gif1 from '../../assets/images/Bubble_sort.gif'
+import gif2 from '../../assets/images/insertion-sort.gif'
+import gif3 from '../../assets/images/merge-sort.gif'
+import gif4 from '../../assets/images/Quicksort.gif'
+import gif5 from '../../assets/images/selectionsort.gif'
+
 import CarouselContainer from './carousel';
 
 function LandingPage() {
