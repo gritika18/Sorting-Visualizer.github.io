@@ -196,21 +196,29 @@ class Sorting extends Component {
             <div className='frame'>
                 <p className='sorting-title'>{this.state.algorithm}</p>
 
-                <div variant="primary" onClick={this.handleShow}>
+                <div onClick={this.handleShow}>
                     <BiInfoCircle className='info-circle'/>Instructions
                 </div>
                 <Modal show={this.state.showModal} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Instructions</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Body>
+                        <ul>
+                            <li>You can change the size of the array.</li>
+                            <li>Size input should be between 5 and 15.</li>
+                            <li>You can also change the values of the elements using the bottom input field.</li>
+                            <li>You can make a note by clicking on the buttom at the right bottom of the page.</li>
+                            <li>The saved notes will be visible in the MyNotes Page in the navbar.</li>
+                        </ul>
+                    </Modal.Body>
                 </Modal>
 
                 <div className='bar-cards'>{bars}</div>
                 <div>
-                    <h5 className='arr-size'>Size of array</h5>
-                    <input type='number' className='arr-size' value={this.state.size} onChange={this.handleChange} placeholder='Enter size of array' />
-                    <div className='arr-size goBtn' onClick={this.changeArrSize}>Create</div>
+                    <p className='arr-size'>Size of array</p>
+                    <input type='number' className='arr-size' value={this.state.size} onChange={this.handleChange} placeholder='Enter size' />
+                    <p className='arr-size goBtn' onClick={this.changeArrSize}>Create</p>
                 </div>
 
                 {playButton}
@@ -223,12 +231,12 @@ class Sorting extends Component {
                         <h3 className='sort-title'>Working of {this.state.algorithm}</h3>
                         <div className='sort-steps'>
                             <ul>
-                                <li>Starting from the first index, compare the first and the second elements.</li>
-                                <li>If the first element is greater than the second element, they are swapped.</li>
-                                <li>Now, compare the second and the third elements. Swap them if they are not in order.</li>
-                                <li>The above process goes on until the last element.</li>
+                                {AlgorithmData[this.state.algorithm].working.map((step)=>{
+                                    return (<li>{step}</li>);
+                                })}
                             </ul>
                         </div>
+
                         <Container>
                             <Row>
                                 <Col lg={6}><img
@@ -240,10 +248,9 @@ class Sorting extends Component {
                                     <h3 className='sort-title steps-title'>Steps</h3>
                                     <div className='sort-steps'>
                                         <ul>
-                                            <li>Starting from the first index, compare the first and the second elements.</li>
-                                            <li>If the first element is greater than the second element, they are swapped.</li>
-                                            <li>Now, compare the second and the third elements. Swap them if they are not in order.</li>
-                                            <li>The above process goes on until the last element.</li>
+                                            {AlgorithmData[this.state.algorithm].steps.map((step)=>{
+                                                return (<li>{step}</li>);
+                                            })}
                                         </ul>
                                     </div>
                                 </Col>
