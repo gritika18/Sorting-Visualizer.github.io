@@ -28,7 +28,8 @@ class Sorting extends Component {
         count: 10,
         delay: 500,
         algorithm: this.props.algorithm,
-        showModal: false
+        showModal: false,
+        startDisabled: false
     } 
 
     componentDidMount(){
@@ -99,7 +100,8 @@ class Sorting extends Component {
             array: tempArr,
             steps: [tempArr],
             count: cnt,
-            currStep: 0
+            currStep: 0,
+            startDisabled: false
         }, () => {this.generateSteps()})
     }
 
@@ -135,7 +137,8 @@ class Sorting extends Component {
         }
 
         this.setState({
-            timeouts: timeouts
+            timeouts: timeouts,
+            startDisabled: true
         });
     }
 
@@ -186,7 +189,7 @@ class Sorting extends Component {
 			);
 		} else {
 			playButton = (
-				<button className='cstBtn' onClick={this.handleStart}>Start</button>
+				<button className='cstBtn' onClick={this.handleStart} disabled={this.state.startDisabled}>Start</button>
 			);
 		}
 
@@ -218,7 +221,7 @@ class Sorting extends Component {
                 <div>
                     <p className='arr-size'>Size of array</p>
                     <input type='number' className='arr-size' value={this.state.size} onChange={this.handleChange} placeholder='Enter size' />
-                    <p className='arr-size goBtn' onClick={this.changeArrSize}>Create</p>
+                    <button className='arr-size goBtn' onClick={this.changeArrSize} disabled={this.state.startDisabled}>Create</button>
                 </div>
 
                 {playButton}
@@ -231,8 +234,8 @@ class Sorting extends Component {
                         <h3 className='sort-title'>Working of {this.state.algorithm}</h3>
                         <div className='sort-steps'>
                             <ul>
-                                {AlgorithmData[this.state.algorithm].working.map((step)=>{
-                                    return (<li>{step}</li>);
+                                {AlgorithmData[this.state.algorithm].working.map((step, index)=>{
+                                    return (<li key={index}>{step}</li>);
                                 })}
                             </ul>
                         </div>
@@ -248,8 +251,8 @@ class Sorting extends Component {
                                     <h3 className='sort-title steps-title'>Steps</h3>
                                     <div className='sort-steps'>
                                         <ul>
-                                            {AlgorithmData[this.state.algorithm].steps.map((step)=>{
-                                                return (<li>{step}</li>);
+                                            {AlgorithmData[this.state.algorithm].steps.map((step, index)=>{
+                                                return (<li key={index}>{step}</li>);
                                             })}
                                         </ul>
                                     </div>
