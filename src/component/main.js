@@ -8,6 +8,7 @@ import NavbarAll from "./navbar";
 import MyNotes from "./Notes/MyNotes";
 import Sorting from "./SortingVisualizer/Sorting";
 import AddNotePopup from "./Popup Button/AddNotePopup";
+import ScrollToTop from "./ScrollToTop";
 
 const Main = ({handleLogout}) => {
 
@@ -39,7 +40,7 @@ const Main = ({handleLogout}) => {
 
     return (
             <Router>
-
+                <ScrollToTop/>
                 <NavbarAll handleLogout={handleLogout}/>
 
                 <Routes>
@@ -59,7 +60,6 @@ const Main = ({handleLogout}) => {
                 </Routes>
 
                 <AddNotePopup handleAddNote={addNote}/>
-
             </Router>
     );
 };
