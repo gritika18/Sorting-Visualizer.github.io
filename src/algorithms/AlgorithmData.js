@@ -21,10 +21,9 @@ let AlgorithmData = {
                    'The same process goes on for the remaining iterations.',
                    'After each iteration, the largest element among the unsorted elements is placed at the end.',
                    'In each iteration, the comparison takes place up to the last unsorted element.'],
-        steps : ['Starting from the first index, compare the first and the second elements.',
-                'If the first element is greater than the second element, they are swapped.', 
-                'Now, compare the second and the third elements. Swap them if they are not in order.', 
-                'The above process goes on until the last element.'],
+        steps : ['Intialize a variable swap as false',
+                 'For every element in the list, if left element is greater than right element, swap them and update swap as  true',
+                 'If swap is true, stop the execution since the list is already sorted, else continue to iterate the list'],
         image : image1
     },
     'Insertion Sort' : {
@@ -34,10 +33,10 @@ let AlgorithmData = {
                   'Compare key with the first element. If the first element is greater than key, then key is placed in front of the first element.',
                   'Now, the first two elements are sorted.Take the third element and compare it with the elements on the left of it. Placed it just behind the element smaller than it. If there is no element smaller than it, then place it at the beginning of the array.',
                  'Similarly, place every unsorted element at its correct position.'],
-        steps : ['Starting from the first index, compare the first and the second elements.',
-                'If the first element is greater than the second element, they are swapped.', 
-                'Now, compare the second and the third elements. Swap them if they are not in order.', 
-                'The above process goes on until the last element.'],
+        steps : ['Consider the first element as the sorted part of the list',
+                'For each unsorted element x, iterate(j) a loop from the last sorted element to the beginning of the list',
+                'If j>x, move the sorted element right by 1.',
+                'Break the loop and insert the unsoted element x'],
         image : image2
     },
     'Merge Sort' : {
@@ -83,10 +82,10 @@ let AlgorithmData = {
                    'Compare minimum with the third element. Again, if the third element is smaller, then assign minimum to the third element otherwise do nothing. The process goes on until the last element.', 
                    'After each iteration, minimum is placed in the front of the unsorted list.',
                    'For each iteration, indexing starts from the first unsorted element. Step 1 to 3 are repeated until all the elements are placed at their correct positions.'],
-        steps : ['Starting from the first index, compare the first and the second elements.',
-                'If the first element is greater than the second element, they are swapped.', 
-                'Now, compare the second and the third elements. Swap them if they are not in order.', 
-                'The above process goes on until the last element.'],
+        steps : ['Set the first element of the unsorted part as minimum.',
+                'Iterate through the unsorted part, if the element is less than minimum, update the minimum as the element.',
+                'Swap minimum with the first unsorted posiion',
+                'Repeat the steps for n-1 times (n=size of the list)'],
         image : image5
     }
 }
